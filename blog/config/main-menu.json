@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Trang chủ",
+    "link": "/"
+  },
+  {
+    "name": "Giới thiệu",
+    "link": "/about"
+  },
+  {
+    "name": "Bài viết",
+    "link": "/blog"
+  },
+  {
+    "name": "Danh mục",
+    "link": "/category"
+  },
+  {
+    "name": "Liên hệ",
+    "link": "/contact"
+  }
+]

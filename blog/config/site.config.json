@@ -1,0 +1,22 @@
+{
+  "metaData": {
+    "title": "Blog History",
+    "description": "A modern and feature-rich blog template built with React, NextJS, and Tailwind CSS.",
+    "author": "",
+    "keyword": "minimal",
+    "ogImage": "/images/ogimage.png"
+  },
+  "baseURL": "",
+  "siteURL": "",
+  "logo": "/images/img/logo.png",
+  "logoWhite": "/images/img/logo.png",
+  "logoText": "Eyolo",
+  "favicon": "/images/favicon.png",
+  "subscriptionFormspreeID": "xnqeeyyp",
+  "footerWidgets": {
+    "email": "hello@authormail.com",
+    "phone": "+1 (555) 123-4567"
+  },
+  "footerLinks": [],
+  "copyright": "© 2024 Eyolo, Inc. All rights reserved."
+}

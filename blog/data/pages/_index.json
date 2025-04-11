@@ -1,0 +1,48 @@
+{
+  "slug": "_index",
+  "frontmatter": {
+    "popularTopics": {
+      "enable": true,
+      "title": "Chủ đề thú vị"
+    },
+    "latestArticles": {
+      "enable": true,
+      "heading": "Đừng Bỏ Lỡ Những Khám Phá Toán Học Mới Nhất",
+      "title": "Bài viết mới nhất",
+      "description": "Những bài viết mới nhất giúp bạn mở rộng tư duy toán học, từ kiến thức nền tảng đến các ứng dụng hiện đại",
+      "button": {
+        "label": "Tất cả bài viết",
+        "link": "/blog"
+      }
+    },
+    "popularArticles": {
+      "enable": true,
+      "heading": "Kiến Thức Toán Học Không Thể Bỏ Lỡ",
+      "title": "Bài Viết Được Yêu Thích Nhất",
+      "description": "Những bài viết được đọc và chia sẻ nhiều nhất",
+      "button": {
+        "label": "Tất cả bài viết",
+        "link": "/blog?filter=popular"
+      }
+    },
+    "trendingArticles": {
+      "enable": true,
+      "heading": "Đừng Bỏ Lỡ Những Chủ Đề Đang Được Quan Tâm Nhất",
+      "title": "Xu Hướng Toán Học",
+      "description": "Toán học luôn đổi mới và phát triển",
+      "button": {
+        "label": "Tất cả bài viết",
+        "link": "/blog?filter=trending"
+      }
+    },
+    "postOfTheWeekSection": {
+      "enable": true,
+      "title": "Bài viết tuần hấp dẫn",
+      "button": {
+        "label": "Bài viết tuần",
+        "link": "/blog?filter=featured"
+      }
+    }
+  },
+  "content": ""
+}

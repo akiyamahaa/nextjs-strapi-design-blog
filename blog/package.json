@@ -1,0 +1,51 @@
+{
+  "name": "blog",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node libs/fetch.mjs && next dev --turbopack",
+    "build": "node libs/fetch.mjs && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "fetch": "node libs/fetch.mjs"
+  },
+  "dependencies": {
+    "@formspree/react": "^3.0.0",
+    "@tabler/icons-react": "^3.31.0",
+    "@tanstack/react-query": "^5.72.2",
+    "@tanstack/react-query-devtools": "^5.72.2",
+    "axios": "^1.8.4",
+    "lightense-images": "^1.0.17",
+    "next": "15.3.0",
+    "next-intl": "^4.0.2",
+    "next-mdx-remote": "^5.0.0",
+    "next-themes": "^0.4.6",
+    "nextjs-toploader": "^3.8.16",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.55.0",
+    "react-syntax-highlighter": "^15.6.1",
+    "reading-time": "^1.5.0",
+    "rehype": "^13.0.2",
+    "rehype-raw": "^7.0.0",
+    "remark": "^15.0.1",
+    "remark-heading-id": "^1.0.1",
+    "remark-html": "^16.0.1",
+    "rss": "^1.2.2",
+    "sharp": "^0.34.1",
+    "zod": "^3.24.2",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.0",
+    "postcss": "8.4.49",
+    "sass": "^1.83.0",
+    "tailwindcss": "3.4.16",
+    "@tailwindcss/typography": "^0.5.15",
+    "tailwind-bootstrap-grid": "^5.1.0"
+  }
+}
