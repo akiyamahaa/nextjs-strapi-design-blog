@@ -50,40 +50,11 @@
       "target": "plugin::users-permissions.user",
       "inversedBy": "blogs"
     },
-    "status": {
-      "type": "enumeration",
-      "enum": [
-        "pending",
-        "published",
-        "rejected"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
     "comments": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::comment.comment",
       "mappedBy": "blog"
-    },
-    "region": {
-      "type": "enumeration",
-      "enum": [
-        "Asia",
-        "Europe",
-        "Africa",
-        "America",
-        "Oceania",
-        "Antarctica"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
     },
     "thumbnail": {
       "type": "media",
@@ -106,12 +77,6 @@
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "blogs"
-    },
-    "upvotes": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::upvote.upvote",
-      "mappedBy": "blog"
     },
     "featured": {
       "pluginOptions": {

@@ -77,12 +77,6 @@
       "relation": "oneToMany",
       "target": "api::blog.blog",
       "mappedBy": "author"
-    },
-    "upvotes": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::upvote.upvote",
-      "mappedBy": "user"
     }
   }
 }
