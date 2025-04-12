@@ -2,12 +2,7 @@
   "slug": "_index",
   "frontmatter": {
     "banner": {
-      "heading": "Your Daily Dose of Inspiration and Knowledge",
-      "rssButton": {
-        "enable": true,
-        "link": "/rss.xml",
-        "label": "RSS"
-      }
+      "heading": "khám phá thế giới UI/UX"
     },
     "popularTopics": {
       "enable": true,
