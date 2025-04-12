@@ -9,7 +9,7 @@ const Banner = ({ trendingPosts, banner }) => {
           <div className="row justify-center items-center">
             <div className="xl:col-8 lg:col-10">
               <h1 className="lg:text-6xl md:text-5xl text-[40px] text-black !leading-snug text-center text-balance -mt-2">
-                <span>{banner.heading}</span>
+                <span>{banner?.heading || "Khám phá UI/UX"}"</span>
               </h1>
             </div>
           </div>

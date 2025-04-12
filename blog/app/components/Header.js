@@ -13,7 +13,6 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const [menuOpen, setMenuOpen] = useState(false);
-  console.log("🚀 ~ Header ~ menuOpen:", menuOpen)
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };

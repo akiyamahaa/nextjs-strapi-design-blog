@@ -1,7 +1,5 @@
 import { routing } from "@/i18n/routing";
 import { fetchBlogs } from "@/libs/functions/getPosts";
-// import { createTranslator } from "next-intl";
-// import { getMessages } from "next-intl/server";
 import homepageData from "@/data/pages/_index.json";
 import { popularCategories } from "@/libs/functions/categories";
 import { slugify } from "@/libs/utils/slugify";
