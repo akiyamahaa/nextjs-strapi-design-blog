@@ -18,7 +18,7 @@ const Home = async ({ params }) => {
     notFound();
   }
 
-  const { banner, latestArticles, popularArticles, postOfTheWeekSection } =
+  const { latestArticles, popularArticles, postOfTheWeekSection } =
     homepageData.frontmatter || {};
 
   const allPosts = await fetchBlogs(locale);
@@ -62,7 +62,7 @@ const Home = async ({ params }) => {
   return (
     <Layout>
       <div className="bg-home1 bg-cover pt-20">
-        <Banner trendingPosts={popularPosts} banner={banner} />
+        <Banner trendingPosts={popularPosts} />
       </div>
 
       <div className="bg-home2 bg-cover">

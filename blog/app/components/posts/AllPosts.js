@@ -68,7 +68,7 @@ const AllPosts = ({ postsPerPage, allPosts }) => {
       setPosts(paginatedPosts);
       setLoading(false);
     },
-    [postsPerPage]
+    [postsPerPage, allPosts, filterParams]
   );
 
   // Set default filter

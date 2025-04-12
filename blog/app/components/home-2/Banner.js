@@ -1,7 +1,7 @@
 import Post from "@/components/posts/Post";
 import Link from "next/link";
 
-const Banner = ({ trendingPosts, banner }) => {
+const Banner = ({ trendingPosts }) => {
   return (
     <>
       <section className={`py-20 sm:py-28 relative z-10`}>
@@ -9,7 +9,7 @@ const Banner = ({ trendingPosts, banner }) => {
           <div className="row justify-center items-center">
             <div className="xl:col-8 lg:col-10">
               <h1 className="lg:text-6xl md:text-5xl text-[40px] text-black !leading-snug text-center text-balance -mt-2">
-                <span>{banner?.heading || "Khám phá UI/UX"}"</span>
+                <span>Khám phá UI/UX</span>
               </h1>
             </div>
           </div>
