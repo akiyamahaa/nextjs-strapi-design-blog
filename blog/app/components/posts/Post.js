@@ -1,31 +1,28 @@
 import { formatDate } from "@/utils/formatDate";
 import { slugify } from "@/utils/slugify";
 import Image from "next/image";
-import Link from "next/link";
+import LocalizedLink from "../LocalizedLink";
 
 const Post = ({ post }) => {
-  const { title, category, image, date, author, authorImage, readingTime } =
-    post.frontmatter;
+  const { title, category, image, date } = post.frontmatter;
 
   return (
     <article className="post-card post-category-top group relative has-line-link-white">
       <div className="relative">
-        <span className="post-category bg-light text-dark z-10">
-          <Link
-            className="border-border transition duration-300 hover:bg-dark hover:text-white hover:border-dark"
+        <span className="text-white z-10 absolute top-4 right-4  capitalize">
+          <LocalizedLink
+            className="border-border transition duration-300 hover:bg-white/10 rounded-md border p-1"
             href={`/category/${slugify(category)}`}
           >
             {category}
-          </Link>
+          </LocalizedLink>
 
-          <div className="text-light corner left">
-            {/* prettier-ignore */}
+          {/* <div className="text-light corner left">
             <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M101 0H0V101H1C1 45.7715 45.7715 1 101 1V0Z" fill="currentColor"></path></svg>
           </div>
           <div className="text-light corner bottom">
-            {/* prettier-ignore */}
             <svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M101 0H0V101H1C1 45.7715 45.7715 1 101 1V0Z" fill="currentColor"></path></svg>
-          </div>
+          </div> */}
         </span>
         <Image
           className="rounded-xl md:rounded-2xl w-full max-h-96 aspect-[9/12] object-cover bg-white/40"
@@ -44,13 +41,13 @@ const Post = ({ post }) => {
         </span>
 
         <h3 className="text-2xl text-white leading-relaxed mb-4 line-link line-clamp-3 min-h-[7.5rem]">
-          <Link
+          <LocalizedLink
             href={`/${post.slug}`}
             className="link-stretched line-link-el"
             aria-label={title}
           >
             {title}
-          </Link>
+          </LocalizedLink>
         </h3>
 
         <span className="h-12 w-12 flex items-center justify-center text-[#90A096] group-hover:text-white bg-white/5 group-hover:bg-white/20 rounded-full has-transition group-hover:rotate-45">

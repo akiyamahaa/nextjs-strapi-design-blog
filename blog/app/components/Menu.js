@@ -18,7 +18,7 @@ const Menu = ({ menuOpen, className = "", menuDark = false }) => {
       style={{ transitionProperty: "transform, opacity" }}
     >
       <nav>
-        <ul className="my-10 mx-auto w-fit font-primary text-3xl">
+        <ul className="my-10 mx-auto w-fit font-primary text-3xl space-y-6">
           {mainMenu.map((menu, key) => {
             const isActive =
               pathname === menu.link ||

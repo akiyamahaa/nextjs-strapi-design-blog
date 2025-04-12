@@ -1,6 +1,6 @@
 import { convertBlogData } from "../utils/formatData";
 
-export const fetchBlogs = async (locale = "vi", region, period) => {
+export const fetchBlogs = async (locale = "vi") => {
   try {
     let page = 1;
     let allData = [];
@@ -10,8 +10,6 @@ export const fetchBlogs = async (locale = "vi", region, period) => {
 
     // Build filter query string
     const filters = [];
-    if (region) filters.push(`filters[region][$eq]=${region}`);
-    if (period) filters.push(`filters[period][$eq]=${period}`);
 
     while (hasMore) {
       const query = [

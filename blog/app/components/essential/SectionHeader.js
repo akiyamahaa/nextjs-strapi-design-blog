@@ -3,11 +3,7 @@ import LocalizedLink from "../LocalizedLink";
 const SectionHeader = ({ title, buttonLabel, buttonLink, dark }) => {
   return (
     <div className="container">
-      <div
-        className={`border-t pt-8 ${
-          dark ? "border-[#2F2F2F]" : "border-[#DBD8BD]"
-        }`}
-      >
+      <div className={`border-t pt-8`}>
         <div className="flex justify-between items-center sm:items-start">
           <h2
             className={`text-base uppercase font-secondary pl-4 relative after:absolute after:rounded-full -mt-1 after:content-[''] after:h-2 after:w-2 after:bg-primary after:left-0 after:top-2 ${

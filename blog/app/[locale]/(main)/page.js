@@ -6,20 +6,13 @@ import homepageData from "@/data/pages/_index.json";
 import { popularCategories } from "@/libs/functions/categories";
 import { slugify } from "@/libs/utils/slugify";
 import Image from "next/image";
-import styles from "@/styles/modules/Style.module.scss";
 import { formatDate } from "@/libs/utils/formatDate";
 import Layout from "@/app/components/Layout";
 import LocalizedLink from "@/app/components/LocalizedLink";
 import SectionHeader from "@/app/components/essential/SectionHeader";
 import PostBlack from "@/app/components/posts/PostBlack";
 import PostTwo from "@/app/components/posts/Post-2";
-
-const timeOrder = {
-  "thời kỳ cổ đại": 1,
-  "thời kỳ trung đại": 2,
-  "thời kỳ cận đại": 3,
-  "thời kỳ hiện đại": 4,
-};
+import Banner from "@/app/components/home-2/Banner";
 
 const Home = async ({ params }) => {
   const { locale } = await params;
@@ -27,21 +20,13 @@ const Home = async ({ params }) => {
     notFound();
   }
 
-  const {
-    latestArticles,
-    popularTopics,
-    popularArticles,
-    postOfTheWeekSection,
-  } = homepageData.frontmatter || {};
+  const { banner, latestArticles, popularArticles, postOfTheWeekSection } =
+    homepageData.frontmatter || {};
 
   const allPosts = await fetchBlogs(locale);
 
   // All Categories with image
-  const categories = (popularCategories(allPosts).slice(0, 8) || []).sort(
-    (a, b) => {
-      return timeOrder[a.name] - timeOrder[b.name];
-    }
-  );
+  const categories = popularCategories(allPosts).slice(0, 8) || [];
 
   // First featured post
   const allFeaturedPost =
@@ -75,11 +60,48 @@ const Home = async ({ params }) => {
         (post) => post.slug !== featuredPost.slug && post.frontmatter.featured
       )
       .slice(0, 4) || [];
-  console.log("🚀 ~ Home ~ allPosts:", allPosts);
 
   return (
     <Layout>
       <div className="bg-home1 bg-cover pt-20">
+        <Banner trendingPosts={popularPosts} banner={banner} />
+      </div>
+
+      <div className="bg-home2 bg-cover">
+        {/* Explore topics */}
+        <section className="pb-16 sm:pb-24">
+          <SectionHeader
+            title={"Khám phá các chủ đề"}
+            buttonLabel={"Tất cả chủ đề"}
+            buttonLink={"/category"}
+            dark={false}
+          />
+          <div className="container mt-10 overflow-clip">
+            <div className="row row-cols-3 sm:row-cols-4 lg:row-cols-6 justify-center gx-2 md:gx-4 gy-3 sm:gy-4">
+              {categories.slice(0, 6).map((item, key) => (
+                <div className="col" key={key}>
+                  <LocalizedLink
+                    href={`/category/${slugify(item.name)}`}
+                    className="group"
+                  >
+                    <div className="overflow-hidden rounded-md sm:rounded-lg">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        width={200}
+                        height={245}
+                        className="rounded-md sm:rounded-lg bg-white/40 aspect-[5/6] object-cover transition duration-500 group-hover:brightness-75 group-hover:scale-110 group-hover:rotate-3"
+                      />
+                    </div>
+                    <p className="font-primary text-center mt-4 text-sm sm:text-base md:text-xl overflow-hidden text-ellipsis capitalize transition duration-500 group-hover:opacity-50 tracking-wide">
+                      {item.name}
+                    </p>
+                  </LocalizedLink>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </div>
 
       <div className="bg-home3 bg-cover">
@@ -107,87 +129,6 @@ const Home = async ({ params }) => {
                     <PostBlack post={post} color="black" />
                   </div>
                 ))}
-              </div>
-            </div>
-          </section>
-        )}
-      </div>
-
-      <div className="bg-home2 bg-cover">
-        {/* Popular Topics */}
-        {popularTopics?.enable && (
-          <section className="py-12">
-            <div className="container">
-              <SectionHeader
-                title={"Chủ đề thú vị"}
-                buttonLabel={"Tất cả chủ đề"}
-                buttonLink={"/category"}
-                dark={false}
-              />
-              <div className="container mt-12">
-                <ul className="text-center [&>li]:text-3xl md:[&>li]:text-[2.75rem] font-primary text-[#9A977A]">
-                  {categories.flatMap((category, key) => {
-                    const isLast = key === categories.length - 1;
-                    return [
-                      <li key={key} className="relative my-6 md:my-10">
-                        <LocalizedLink
-                          href={`/category/${slugify(category.name)}`}
-                          className="inline-block group transition-all duration-300"
-                        >
-                          <span className="transition-all duration-100 relative z-30 group-hover:text-secondary group-hover:drop-shadow-lg capitalize flex items-center gap-x-4">
-                            {category.name}
-                            {/* prettier-ignore */}
-                          </span>
-                          <span
-                            className={`absolute max-w-32 lg:max-w-52 top-1/2 opacity-0 invisible scale-90 transition-all duration-300 group-hover:opacity-100 group-hover:visible group-hover:scale-100 overflow-hidden rounded-lg z-20 pointer-events-none ${
-                              key % 2 == 0 ? "left-[10%]" : "right-[10%]"
-                            } ${
-                              key == 0 || key == 1
-                                ? "translate-y-0"
-                                : "-translate-y-1/2"
-                            } ${
-                              key == categories.length ||
-                              key == categories.length - 1
-                                ? "-translate-y-full"
-                                : "-translate-y-1/2"
-                            }`}
-                          >
-                            <Image
-                              height="130"
-                              width="250"
-                              className="object-cover h-full w-full scale-150 group-hover:scale-100 transition-all duration-300"
-                              src={category.image}
-                              alt={category.name}
-                            />
-                          </span>
-                        </LocalizedLink>
-                      </li>,
-
-                      // Thêm SVG mũi tên xuống giữa các mục
-                      !isLast && (
-                        <li
-                          key={`arrow-${key}`}
-                          className="flex justify-center"
-                        >
-                          <svg
-                            className="w-1 md:w-1.5 h-20 md:h-28 text-[#C1BE9F]"
-                            viewBox="0 0 10 100"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M5 0V96 M5 96L0 91 M5 96L10 91"
-                              stroke="currentColor"
-                              strokeWidth="3"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </li>
-                      ),
-                    ];
-                  })}
-                </ul>
               </div>
             </div>
           </section>
