@@ -47,64 +47,64 @@ const CategorySingle = async (props) => {
     <>
       <SetCurrentCategoryClient currentCategory={categories[0]} />
       <Layout>
-        <section className="py-16 md:py-24 border-b border-border overflow-clip">
-          <div className="container">
-            <div className="row items-end gy-4">
-              <div className="col-12">
-                <p className="flex items-center justify-center gap-x-2 mb-6 sm:mb-8">
-                  <span>CHỦ ĐỀ</span>
-                </p>
-                <h1 className="text-4xl md:text-5x text-white font-normal text-balance leading-tight capitalize relative z-10 mix-blend-difference text-center">
-                  <span className="inline-block bg-white w-6 md:w-10 h-px align-middle mr-4 md:mr-6"></span>
-                  {slug.split("-").join(" ")}
-                  <span className="inline-block bg-white w-6 md:w-10 h-px align-middle ml-4 md:ml-6"></span>
-                </h1>
-              </div>
+        <div className="bg-blogSection bg-cover bg-no-repeat min-h-[calc(100vh-542px)]">
+          <section className="py-16 md:py-24 border-b border-border overflow-clip">
+            <div className="container">
+              <div className="row items-end gy-4">
+                <div className="col-12">
+                  <p className="flex items-center justify-center gap-x-2 mb-6 sm:mb-8">
+                    <span>CHỦ ĐỀ</span>
+                  </p>
+                  <h1 className="text-4xl md:text-5x text-white font-normal text-balance leading-tight capitalize relative z-10 mix-blend-difference text-center">
+                    <span className="inline-block bg-white w-6 md:w-10 h-px align-middle mr-4 md:mr-6"></span>
+                    {slug.split("-").join(" ")}
+                    <span className="inline-block bg-white w-6 md:w-10 h-px align-middle ml-4 md:ml-6"></span>
+                  </h1>
+                </div>
 
-              <div className="md:col-10 mx-auto">
-                <div className="post-card mt-8 sm:mt-16">
-                  <div className="post-category !static !flex flex-wrap gap-2 sm:gap-3 justify-center">
-                    {categories.map((category, key) => (
-                      <LocalizedLink
-                        className={`min-h-[40px] py-2 px-3 border-border transition-all duration-300 hover:bg-dark hover:text-white hover:border-dark !flex items-center gap-x-1 sm:w-auto w-[calc(50%-0.5rem)] justify-center text-center ${
-                          slug === slugify(category.name)
-                            ? "bg-dark text-white border-dark"
-                            : ""
-                        }`}
-                        href={`/category/${slugify(category.name)}`}
-                        key={key}
-                      >
-                        {category.name}
-                        {category.count > 1 && (
-                          <span className="bg-primary text-white h-5 w-5 leading-5 rounded-full inline-block text-center text-xs ml-1">
-                            {category.count}
-                          </span>
-                        )}
-                      </LocalizedLink>
-                    ))}
+                <div className="md:col-10 mx-auto">
+                  <div className="post-card mt-8 sm:mt-16">
+                    <div className="post-category !static !flex flex-wrap gap-2 sm:gap-3 justify-center">
+                      {categories.map((category, key) => (
+                        <LocalizedLink
+                          className={`min-h-[40px] py-2 px-3 border-border transition-all duration-300 hover:bg-dark hover:text-white hover:border-dark !flex items-center gap-x-1 sm:w-auto w-[calc(50%-0.5rem)] justify-center text-center ${slug === slugify(category.name)
+                              ? "bg-dark text-white border-dark"
+                              : ""
+                            }`}
+                          href={`/category/${slugify(category.name)}`}
+                          key={key}
+                        >
+                          {category.name}
+                          {category.count > 1 && (
+                            <span className="bg-primary text-white h-5 w-5 leading-5 rounded-full inline-block text-center text-xs ml-1">
+                              {category.count}
+                            </span>
+                          )}
+                        </LocalizedLink>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className={`${styles.waveBg} py-16 md:py-24 overflow-clip`}>
-          <div className="container">
-            <div className="row g-6 justify-center">
-              {posts.map((post, index) => (
-                <div
-                  key={index}
-                  className={`${
-                    postsPattern.includes(index) ? "lg:col-5" : "lg:col-7"
-                  }`}
-                >
-                  <PostBlack post={post} color="text2" />
-                </div>
-              ))}
+          <section className={`${styles.waveBg} py-16 md:py-24 overflow-clip`}>
+            <div className="container">
+              <div className="row g-6 justify-center">
+                {posts.map((post, index) => (
+                  <div
+                    key={index}
+                    className={`${postsPattern.includes(index) ? "lg:col-5" : "lg:col-7"
+                      }`}
+                  >
+                    <PostBlack post={post} color="text2" />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </Layout>
     </>
   );

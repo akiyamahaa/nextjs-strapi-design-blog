@@ -5,7 +5,7 @@ import { Suspense } from "react";
 
 export const metadata = {
   title: "Danh sách bài viết",
-  description: "All of Tri's Blog Posts",
+  description: "All of Diep's Blog Posts",
 };
 
 const AllBlog = async (props) => {

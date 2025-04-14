@@ -24,7 +24,7 @@ export const fetchBlogs = async (locale = "vi") => {
 
       const url = `${baseUrl}${endpoint}?${query}`;
 
-      const res = await fetch(`${url}`, { cache: "force-cache" });
+      const res = await fetch(`${url}`, { cache: "no-cache" });
       if (!res.ok) throw new Error("Failed to fetch blogs");
 
       const { data, meta } = await res.json();
@@ -37,6 +37,7 @@ export const fetchBlogs = async (locale = "vi") => {
       }
     }
     const convertedData = allData.map(convertBlogData);
+    console.log(convertedData)
     return convertedData;
   } catch (error) {
     console.error("Error fetching blogs:", error);

@@ -1,9 +1,6 @@
 {
   "slug": "_index",
   "frontmatter": {
-    "banner": {
-      "heading": "Khám phá thế giới UI/UX"
-    },
     "popularTopics": {
       "enable": true,
       "title": "Chủ đề thú vị"

@@ -98,129 +98,129 @@ const AllPosts = ({ postsPerPage, allPosts }) => {
 
   return (
     <>
-      <section className="py-16 md:py-24 border-b border-border overflow-clip">
-        <div className="container">
-          <div className="row items-end gy-4">
-            <div className="md:col-8">
-              <p className="flex items-center justify-center md:justify-start gap-x-2 mb-6 sm:mb-8">
-                {/* prettier-ignore */}
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 2h18" /><rect width="18" height="12" x="3" y="6" rx="2" /><path d="M3 22h18" /></svg>
-                <span>Khám Phá Thế Giới Lịch Sử</span>
-              </p>
-              <h1 className="text-4xl md:text-5xl text-white font-normal text-balance leading-tight capitalize relative z-10 mix-blend-difference text-center md:text-left">
-                <span className="hidden md:inline-block bg-white w-6 md:w-10 h-px align-middle mr-4 md:mr-6"></span>
-                {capitalizeText(
-                  filterParams.get("filter") == null ||
-                    filterParams.get("filter") === "" ||
-                    !postFilters.includes(filterParams.get("filter"))
-                    ? "Bài viết lịch sử"
-                    : `${filterParams.get("filter")} Posts`
-                )}
-              </h1>
-            </div>
-            <div className="md:col-4 text-center md:text-end">
-              <div className="inline-flex items-center gap-x-3">
-                <p>Bộ lọc:</p>
-                <select
-                  className="bg-transparent border border-dark/20 rounded px-3 h-8 appearance-none outline-none w-28 bg-no-repeat bg-[size:13px] bg-[90%_50%] text-sm cursor-pointer"
-                  style={{ backgroundImage: `url(${arrowBg})` }}
-                  title="Filter Posts"
-                  onChange={handleFilterChange}
-                  value={filterParams.get("filter") || ""}
-                >
-                  <option value="latest">Mới nhất</option>
-                  <option value="trending">Xu hướng</option>
-                  <option value="popular">Phổ biến</option>
-                  <option value="featured">Yêu thích</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 sm:py-24 min-h-[500px]">
-        <div className="container overflow-clip">
-          <div className="row gx-5 gy-6">
-            {loading ? (
-              <>
-                <div className="xl:col-3 lg:col-4 md:col-6 mb-3 sm:mb-8">
-                  <Skeleton dark />
-                </div>
-                <div className="xl:col-3 lg:col-4 md:col-6 mb-3 sm:mb-8">
-                  <Skeleton dark />
-                </div>
-                <div className="xl:col-3 lg:col-4 md:col-6 mb-3 sm:mb-8">
-                  <Skeleton dark />
-                </div>
-                <div className="xl:col-3 lg:col-4 md:col-6 mb-3 sm:mb-8">
-                  <Skeleton dark />
-                </div>
-              </>
-            ) : posts.length === 0 ? (
-              <div className="col-12 text-center py-16">
-                <p className="text-2xl text-gray-400">
-                  Không có bài viết nào được tìm thấy.
+      <div className="bg-blogSection bg-cover">
+        <section className="py-16 md:py-24 border-b border-border overflow-clip">
+          <div className="container">
+            <div className="row items-end gy-4">
+              <div className="md:col-8">
+                <p className="flex items-center justify-center md:justify-start gap-x-2 mb-6 sm:mb-8">
+                  {/* prettier-ignore */}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 2h18" /><rect width="18" height="12" x="3" y="6" rx="2" /><path d="M3 22h18" /></svg>
+                  <span>Khám Phá Thế Giới Designer</span>
                 </p>
+                <h1 className="text-4xl md:text-5xl text-white font-normal text-balance leading-tight capitalize relative z-10 mix-blend-difference text-center md:text-left">
+                  <span className="hidden md:inline-block bg-white w-6 md:w-10 h-px align-middle mr-4 md:mr-6"></span>
+                  {capitalizeText(
+                    filterParams.get("filter") == null ||
+                      filterParams.get("filter") === "" ||
+                      !postFilters.includes(filterParams.get("filter"))
+                      ? "Bài viết Blog"
+                      : `${filterParams.get("filter")} Posts`
+                  )}
+                </h1>
               </div>
-            ) : (
-              <>
-                {posts.map((post, index) => (
-                  <div
-                    key={index}
-                    className="xl:col-3 lg:col-4 md:col-6 mb-3 sm:mb-8"
+              <div className="md:col-4 text-center md:text-end">
+                <div className="inline-flex items-center gap-x-3">
+                  <p>Bộ lọc:</p>
+                  <select
+                    className="bg-transparent border border-dark/20 rounded px-3 h-8 appearance-none outline-none w-28 bg-no-repeat bg-[size:13px] bg-[90%_50%] text-sm cursor-pointer"
+                    style={{ backgroundImage: `url(${arrowBg})` }}
+                    title="Filter Posts"
+                    onChange={handleFilterChange}
+                    value={filterParams.get("filter") || ""}
                   >
-                    <PostTwo post={post} />
-                  </div>
-                ))}
-
-                <div className="col-12">
-                  <hr className="border-border" />
-                  <div className="flex flex-col justify-center items-center gap-y-4 mt-12">
-                    <div className="flex gap-x-5 [&>*]:cursor-pointer [&>*]:flex [&>*]:items-center [&>*]:gap-x-2 [&>*]:px-5 [&>*]:py-3 [&>*]:rounded-md">
-                      <button
-                        className={`group ${
-                          currentPage === 1
-                            ? "pointer-events-none opacity-25"
-                            : ""
-                        }`}
-                        onClick={() => handlePageChange(currentPage - 1)}
-                      >
-                        {/* prettier-ignore */}
-                        <svg className="-ml-2 transition duration-300 group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
-                        Previous
-                      </button>
-                      <button
-                        className={`group ${
-                          currentPage ===
-                          Math.ceil(totalFilteredPosts / postsPerPage)
-                            ? "pointer-events-none opacity-25"
-                            : ""
-                        }`}
-                        onClick={() => handlePageChange(currentPage + 1)}
-                      >
-                        Next
-                        {/* prettier-ignore */}
-                        <svg className="-mr-2 transition duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-                      </button>
-                    </div>
-                    <p>
-                      Page {currentPage}{" "}
-                      <span className="px-5 -translate-y-px inline-block opacity-20">
-                        |
-                      </span>{" "}
-                      {postsPerPage * currentPage < totalFilteredPosts
-                        ? postsPerPage * currentPage
-                        : totalFilteredPosts}{" "}
-                      of {totalFilteredPosts} Posts
-                    </p>
-                  </div>
+                    <option value="latest">Mới nhất</option>
+                    <option value="trending">Xu hướng</option>
+                    <option value="popular">Phổ biến</option>
+                    <option value="featured">Yêu thích</option>
+                  </select>
                 </div>
-              </>
-            )}
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section className="py-16 sm:py-24 min-h-[500px]">
+          <div className="container overflow-clip">
+            <div className="row gx-5 gy-6">
+              {loading ? (
+                <>
+                  <div className="xl:col-3 lg:col-4 md:col-6 mb-3 sm:mb-8">
+                    <Skeleton dark />
+                  </div>
+                  <div className="xl:col-3 lg:col-4 md:col-6 mb-3 sm:mb-8">
+                    <Skeleton dark />
+                  </div>
+                  <div className="xl:col-3 lg:col-4 md:col-6 mb-3 sm:mb-8">
+                    <Skeleton dark />
+                  </div>
+                  <div className="xl:col-3 lg:col-4 md:col-6 mb-3 sm:mb-8">
+                    <Skeleton dark />
+                  </div>
+                </>
+              ) : posts.length === 0 ? (
+                <div className="col-12 text-center py-16">
+                  <p className="text-2xl text-gray-400">
+                    Không có bài viết nào được tìm thấy.
+                  </p>
+                </div>
+              ) : (
+                <>
+                  {posts.map((post, index) => (
+                    <div
+                      key={index}
+                      className="xl:col-3 lg:col-4 md:col-6 mb-3 sm:mb-8"
+                    >
+                      <PostTwo post={post} />
+                    </div>
+                  ))}
+
+                  <div className="col-12">
+                    <hr className="border-border" />
+                    <div className="flex flex-col justify-center items-center gap-y-4 mt-12">
+                      <div className="flex gap-x-5 [&>*]:cursor-pointer [&>*]:flex [&>*]:items-center [&>*]:gap-x-2 [&>*]:px-5 [&>*]:py-3 [&>*]:rounded-md">
+                        <button
+                          className={`group ${currentPage === 1
+                              ? "pointer-events-none opacity-25"
+                              : ""
+                            }`}
+                          onClick={() => handlePageChange(currentPage - 1)}
+                        >
+                          {/* prettier-ignore */}
+                          <svg className="-ml-2 transition duration-300 group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+                          Previous
+                        </button>
+                        <button
+                          className={`group ${currentPage ===
+                              Math.ceil(totalFilteredPosts / postsPerPage)
+                              ? "pointer-events-none opacity-25"
+                              : ""
+                            }`}
+                          onClick={() => handlePageChange(currentPage + 1)}
+                        >
+                          Next
+                          {/* prettier-ignore */}
+                          <svg className="-mr-2 transition duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+                        </button>
+                      </div>
+                      <p>
+                        Page {currentPage}{" "}
+                        <span className="px-5 -translate-y-px inline-block opacity-20">
+                          |
+                        </span>{" "}
+                        {postsPerPage * currentPage < totalFilteredPosts
+                          ? postsPerPage * currentPage
+                          : totalFilteredPosts}{" "}
+                        of {totalFilteredPosts} Posts
+                      </p>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </section>
+      </div>
     </>
   );
 };

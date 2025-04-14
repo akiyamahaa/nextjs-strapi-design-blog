@@ -24,7 +24,7 @@ const CommentForm = ({ blogId }) => {
         }
       );
     } else {
-      router.push(ERouteTable.SIGIN_IN);
+      router.push(`/vi/${ERouteTable.SIGIN_IN}`);
     }
   };
 

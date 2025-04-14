@@ -41,7 +41,9 @@ const getDistributedDate = (publishedAt, id) => {
 };
 
 export function convertBlogData(blog) {
+  console.log(blog)
   const blogData = blog.attributes;
+  console.log(blogData)
 
   return {
     id: blog.id,
@@ -56,13 +58,12 @@ export function convertBlogData(blog) {
       date: formatDate(blogData.createdAt),
       category: blogData.category.data.attributes.name,
       categorySlug: blogData.category.data.attributes.slug,
-      localizations: {
-        locale: blogData.localizations.data[0].attributes.locale,
-        slug: blogData.localizations.data[0].attributes.slug,
-      },
+      // localizations: {
+      //   locale: blogData.localizations.data[0].attributes.locale,
+      //   slug: blogData.localizations.data[0].attributes.slug,
+      // },
       author: blogData.author || "Admin",
       authorSlug: "admin",
-      region: blogData.region,
       featured: blogData.featured || false,
       trending: blogData.trending || false,
       latest: isLatestPost(blogData.publishedAt),

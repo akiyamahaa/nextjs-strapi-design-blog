@@ -15,11 +15,11 @@ const Footer = () => {
     .replace(/-/g, "");
 
   return (
-    <footer className={`bg-home5 bg-cover mt-auto py-16 sm:py-24 text-white`}>
+    <footer className={`bg-bgFooter bg-cover mt-auto py-16 sm:py-24 text-white`}>
       <div className="container">
         <div className="border-t-2 border-[#fff] pt-10 mb-6">
           <h2 className="text-white text-4xl sm:text-5xl md:text-6xl">
-            Có câu hỏi hay về lịch sử?
+            Có câu hỏi hay về Design?
           </h2>
         </div>
         <div className="row gy-4">

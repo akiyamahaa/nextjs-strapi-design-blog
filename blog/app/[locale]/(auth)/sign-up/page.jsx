@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useAuth } from "@/hooks/useAuth";
 
 export default function SignUpPage() {
-  const locale = useLocale(); // 👈 Lấy locale hiện tại: 'vi' | 'en' | ...
+  const locale = useLocale();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,7 +18,6 @@ export default function SignUpPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      // Gọi API đăng ký, bạn cần có API backend xử lý route này
       signUpMutation.mutate({ username, email, password });
     } catch (error) {
       console.error("Đăng ký thất bại", error);
@@ -29,18 +28,14 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto mt-16 p-6 bg-white dark:bg-gray-900 rounded-lg shadow-md">
-      <div className="absolute inset-0 bg-gradient-to-b from-orange-100/60 to-yellow-100/80 backdrop-blur-sm"></div>
-
-      <div className="relative z-10 w-full max-w-md  h-full bg-white/90 dark:bg-gray-800/80 shadow-xl rounded-xl px-8 py-12 border border-yellow-300 flex flex-col">
+    <div className="w-full max-w-md mx-auto mt-16 p-6 bg-[#E5DFFD] rounded-xl shadow-lg">
+      <div className="relative z-10 w-full max-w-md bg-white/90 dark:bg-gray-800/80 shadow-xl rounded-xl px-8 py-12 border border-[#C1B2FF] flex flex-col">
         <div className="flex flex-col justify-between h-full">
-          {/* Tiêu đề */}
-          <h2 className="text-3xl font-bold text-center text-yellow-700 dark:text-yellow-300">
+          <h2 className="text-3xl font-bold text-center text-[#6B5CC4] dark:text-[#C1B2FF]">
             Đăng ký
           </h2>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-4 my-12">
+          <form onSubmit={handleSubmit} className="space-y-4 my-10">
             <input
               type="text"
               placeholder="Tên đăng nhập"
@@ -48,7 +43,7 @@ export default function SignUpPage() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
-              className="w-full px-4 py-3 border border-yellow-300 rounded-lg bg-white/90 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              className="w-full px-4 py-3 border border-[#C1B2FF] rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#A18CFF]"
             />
 
             <input
@@ -58,7 +53,7 @@ export default function SignUpPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-4 py-3 border border-yellow-300 rounded-lg bg-white/90 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              className="w-full px-4 py-3 border border-[#C1B2FF] rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#A18CFF]"
             />
 
             <input
@@ -68,30 +63,29 @@ export default function SignUpPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full px-4 py-3 border border-yellow-300 rounded-lg bg-white/90 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              className="w-full px-4 py-3 border border-[#C1B2FF] rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#A18CFF]"
             />
 
             <button
               type="submit"
               disabled={loading}
-              className={`w-full py-2 rounded-lg text-white font-semibold transition-all duration-300 ${
+              className={`w-full py-3 rounded-lg text-white font-semibold transition-all duration-300 ${
                 signUpMutation.isPending
-                  ? "bg-yellow-300 cursor-not-allowed"
-                  : "bg-yellow-500 hover:bg-yellow-600"
+                  ? "bg-[#D4CCF7] cursor-not-allowed"
+                  : "bg-[#A18CFF] hover:bg-[#8F7AFF]"
               }`}
             >
               {signUpMutation.isPending ? "Đang đăng ký..." : "Đăng ký"}
             </button>
           </form>
 
-          {/* Link chuyển sang đăng nhập */}
           <div className="text-center">
             <span className="text-gray-700 dark:text-gray-300">
               Đã có tài khoản?{" "}
             </span>
             <Link
               href={`/${locale}${ERouteTable.SIGIN_IN}`}
-              className="text-yellow-600 dark:text-yellow-400 hover:underline"
+              className="text-[#8F7AFF] hover:underline dark:text-[#C1B2FF]"
             >
               Đăng nhập
             </Link>

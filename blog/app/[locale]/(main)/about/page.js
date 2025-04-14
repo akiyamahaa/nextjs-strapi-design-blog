@@ -1,8 +1,8 @@
 import Layout from "@/components/Layout";
 import aboutData from "@/data/pages/about.json";
-import styles from "@/styles/modules/Style.module.scss";
 import Image from "next/image";
 import avatar from "@/public/images/img/avatar.jpg";
+
 export const metadata = {
   title: aboutData.frontmatter.title,
   description: aboutData.frontmatter.description,
@@ -11,30 +11,27 @@ export const metadata = {
 const About = () => {
   const { title, banner, about_info, authors } = aboutData.frontmatter;
 
-  console.log(banner.image_01);
-
   return (
     <Layout>
       <div
-        className={`${styles.waveBg} px-3 md:px-10 xl:px-1 py-24 text-center text-white`}
+        className={`bg-aboutBanner px-3 md:px-10 xl:px-1 py-24 text-center text-white`}
       >
         <div className="container relative">
           <div className="relative w-full max-w-4xl mx-auto z-10">
             <h1 className="text-3xl sm:text-4xl md:text-5xl text-white font-normal text-balance !leading-snug capitalize relative z-10 mix-blend-difference">
-              Lịch sử không chỉ là quá khứ, mà là chiếc gương phản chiếu tương
-              lai.
+              Thiết kế không chỉ là cái đẹp – mà là cách mọi thứ vận hành.
             </h1>
           </div>
           <p className="mt-8 font-light w-full max-w-lg mx-auto"></p>
         </div>
       </div>
 
-      <div className="py-16 sm:py-24">
+      <div className="py-16 sm:py-24 bg-bgAbout bg-cover">
         <div className="container">
           <div className="row justify-center">
             <div className="text-center">
               <h2 className="text-3xl sm:text-4xl mb-8 !leading-snug">
-                Đôi chút về bản thân
+                Đôi nét về mình
               </h2>
             </div>
           </div>
@@ -51,30 +48,18 @@ const About = () => {
             </div>
             <div className="w-2/3 space-y-4">
               <p className="mt-4 text-gray-700 text-lg leading-relaxed">
-                Xin chào! Mình là{" "}
-                <span className="font-semibold text-blue-700">Gojo Satoru</span>
-                một người đam mê lịch sử đến mức có thể ngồi hàng giờ chỉ để nói
-                về những câu chuyện đã qua hàng trăm, thậm chí hàng nghìn năm
-                trước. 📜
+                Chào bạn! Mình là{" "}
+                <span className="font-semibold text-blue-700">Gojo Satoru</span>,  
+                một designer với niềm đam mê mãnh liệt với thế giới UI/UX – nơi mà thiết kế không chỉ để nhìn đẹp, mà còn để giải quyết vấn đề.
               </p>
               <p className="mt-4 text-gray-700 text-lg leading-relaxed">
-                Bạn từng nghĩ lịch sử chỉ là những mốc thời gian khô khan và
-                những cái tên khó nhớ? Thật ra, lịch sử là một kho tàng những
-                câu chuyện kỳ lạ, ly kỳ, cảm động và đầy cảm hứng – nơi bạn có
-                thể gặp gỡ những con người vĩ đại, những bước ngoặt định hình cả
-                thế giới, hay những điều nhỏ bé nhưng đầy thú vị về cuộc sống
-                ngày xưa.
+                Thiết kế giao diện (UI) và trải nghiệm người dùng (UX) không chỉ là công việc của sự sáng tạo, mà còn là hành trình tìm hiểu con người – từ hành vi, thói quen đến cảm xúc. Mình tin rằng một thiết kế tốt là khi người dùng không cần nghĩ – mọi thứ đều mượt mà, tự nhiên, và khiến họ muốn quay lại lần nữa.
               </p>
               <p className="mt-4 text-gray-700 text-lg leading-relaxed">
-                Blog này là nơi mình chia sẻ lịch sử theo cách gần gũi, sinh
-                động và dễ tiếp cận, không giáo điều, không khô khan. Dù bạn là
-                người yêu thích khám phá quá khứ, hay chỉ đơn giản muốn biết
-                thêm vài chuyện hay ho về thế giới đã từng tồn tại – mình rất
-                vui được đồng hành cùng bạn trong hành trình này! 🕰️
+                Blog này là không gian mình chia sẻ góc nhìn về thiết kế số hiện đại, từ những nguyên tắc nền tảng đến các xu hướng UI/UX mới nhất, công cụ thiết kế hiệu quả, và cả những bài học thực tế trong nghề. Nếu bạn là designer đang học hỏi, developer muốn hiểu UX hơn, hoặc đơn giản là người yêu cái đẹp có chức năng – thì bạn đang ở đúng chỗ!
               </p>
               <p className="mt-4 text-gray-700 text-lg font-bold leading-relaxed">
-                Cùng nhau khám phá dòng chảy lịch sử – để hiểu hiện tại và nhìn
-                về tương lai! 🌍
+                Cùng nhau thiết kế nên những trải nghiệm tuyệt vời – vì người dùng xứng đáng được tận hưởng điều tốt nhất. ✨
               </p>
             </div>
           </div>

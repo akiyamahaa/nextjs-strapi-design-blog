@@ -106,7 +106,7 @@ const Header = () => {
                   </span>
                 </button>
                 {/* Button Config */}
-                <LanguageSwitcher />
+                {/* <LanguageSwitcher /> */}
                 <UserButton />
                 {/* <ThemeToggle /> */}
               </div>

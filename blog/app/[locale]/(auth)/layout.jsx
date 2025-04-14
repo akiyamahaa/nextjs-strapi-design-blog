@@ -15,7 +15,7 @@ export default function AuthLayout({ children }) {
   }, [isAuthenticated]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-bg2">
+    <div className="min-h-screen flex items-center justify-center bg-homeSection1">
       {children}
     </div>
   );

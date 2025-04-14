@@ -40,7 +40,7 @@ const BlogDetails = async (props) => {
     <>
       <SetCurrentPostClient currentPost={currentPost} />
       <Layout>
-        <div className="bg-home1">
+        <div className="bg-homeSection1">
           <div id="post-header" className="py-16 sm:py-20 overflow-clip">
             <div className="container">
               <div className="row lg:flex-nowrap items-center">
