@@ -6,6 +6,8 @@ import config from "@/config/site.config";
 import { useEffect, useState } from "react";
 import UserButton from "./UserButton";
 import LanguageSwitcher from "./LanguageSwitcher";
+import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
   const logo = config.logo;
@@ -70,23 +72,23 @@ const Header = () => {
                   ></span>
                 </button>
                 {/* Logo */}
-                {/* <Link
+                <Link
                   href="/"
-                  className="py-4 sm:py-5 px-10  inline-block focus:outline-none"
+                  className="px-4  inline-block focus:outline-none"
                 >
                   {logo ? (
                     <Image
                       src={logo}
                       alt={logoText}
-                      width={143}
-                      height={30}
+                      width={80}
+                      height={80}
                       priority={true}
-                      className="w-[120px] sm:w-[143px] h-auto"
+                      className="w-[80px] sm:w-[80px] h-auto"
                     />
                   ) : (
                     <span className="text-3xl text-black">{logoText}</span>
                   )}
-                </Link> */}
+                </Link>
               </div>
             </div>
             {/* nav actions */}
@@ -106,7 +108,7 @@ const Header = () => {
                   </span>
                 </button>
                 {/* Button Config */}
-                {/* <LanguageSwitcher /> */}
+                <LanguageSwitcher />
                 <UserButton />
                 {/* <ThemeToggle /> */}
               </div>

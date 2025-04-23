@@ -20,7 +20,7 @@ export const metadata = {
   type: "website",
 
   icons: {
-    icon: "/images/favicon.png",
+    icon: "/images/ux/favicon.png",
   },
 
   metadataBase: new URL("https://blog.makiacademy.com/"),

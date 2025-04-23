@@ -8,14 +8,14 @@
   },
   "baseURL": "",
   "siteURL": "",
-  "logo": "/images/img/logo.png",
+  "logo": "/images/ux/logo1.png",
   "logoWhite": "/images/img/logo.png",
-  "logoText": "Eyolo",
-  "favicon": "/images/favicon.png",
+  "logoText": "Design Wise",
+  "favicon": "/images/ux/favicon1.png",
   "subscriptionFormspreeID": "xnqeeyyp",
   "footerWidgets": {
-    "email": "anna.duong.8210406@gmail.com",
-    "phone": "(+84) 866 587 382"
+    "email": "hello@authormail.com",
+    "phone": "+1 (555) 123-4567"
   },
   "footerLinks": [],
   "copyright": "© 2024 Eyolo, Inc. All rights reserved."
