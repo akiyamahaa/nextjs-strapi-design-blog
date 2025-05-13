@@ -4,11 +4,6 @@ import aboutData from "@/data/pages/about.json";
 import Image from "next/image";
 import Link from "next/link";
 
-export const metadata = {
-  title: "All Authors",
-  description: "All of Eyolo's Authors",
-};
-
 const Author = () => {
   const { authors } = aboutData.frontmatter;
 

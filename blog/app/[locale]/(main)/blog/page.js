@@ -13,6 +13,17 @@ const AllBlog = async (props) => {
   const locale = params.locale;
   const postsPerPage = 8;
   const allPosts = await fetchBlogs(locale);
+  // i want to sort post by date
+  const sortedPosts = allPosts.sort((a, b) => {
+    const dateA = new Date(
+      a.frontmatter?.date || a.frontmatter?.published || 0
+    );
+    const dateB = new Date(
+      b.frontmatter?.date || b.frontmatter?.published || 0
+    );
+    return dateB - dateA; // Sắp xếp giảm dần (mới nhất trước)
+  });
+
   return (
     <Suspense
       fallback={
@@ -22,7 +33,7 @@ const AllBlog = async (props) => {
       }
     >
       <Layout>
-        <AllPosts postsPerPage={postsPerPage} allPosts={allPosts} />
+        <AllPosts postsPerPage={postsPerPage} allPosts={sortedPosts} />
       </Layout>
     </Suspense>
   );

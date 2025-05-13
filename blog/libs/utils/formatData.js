@@ -33,18 +33,8 @@ const formatDate = (isoDate) => {
   }
 };
 
-const getDistributedDate = (publishedAt, id) => {
-  const startDate = new Date(publishedAt); // Use the existing publishedAt date
-  const daysOffset = id * 3; // Space out each post by 3 days (adjust as needed)
-  startDate.setDate(startDate.getDate() - daysOffset);
-  return startDate.toISOString();
-};
-
 export function convertBlogData(blog) {
-  console.log(blog)
   const blogData = blog.attributes;
-  console.log(blogData)
-
   return {
     id: blog.id,
     slug: blogData.slug,

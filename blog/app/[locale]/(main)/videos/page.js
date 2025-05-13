@@ -3,11 +3,6 @@ import LayoutThree from "@/components/home-3/Layout";
 import { Suspense } from "react";
 import AllVideos from "./AllVideos";
 
-export const metadata = {
-  title: "All Video Posts",
-  description: "All of Eyolo's Video Posts",
-};
-
 const Videos = () => {
   const postsPerPage = 4;
 

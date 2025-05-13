@@ -37,7 +37,7 @@ export const fetchBlogs = async (locale = "vi") => {
       }
     }
     const convertedData = allData.map(convertBlogData);
-    console.log(convertedData)
+    console.log(convertedData);
     return convertedData;
   } catch (error) {
     console.error("Error fetching blogs:", error);
