@@ -24,7 +24,7 @@ export const fetchBlogs = async (locale = "vi") => {
 
       const url = `${baseUrl}${endpoint}?${query}`;
 
-      const res = await fetch(`${url}`, { cache: "default" });
+      const res = await fetch(`${url}`, { cache: "force-cache" });
       if (!res.ok) throw new Error("Failed to fetch blogs");
 
       const { data, meta } = await res.json();
