@@ -37,8 +37,16 @@ export const fetchBlogs = async (locale = "vi") => {
       }
     }
     const convertedData = allData.map(convertBlogData);
-    console.log(convertedData);
-    return convertedData;
+    const sortedPosts = convertedData.sort((a, b) => {
+      const dateA = new Date(
+        a.frontmatter?.date || a.frontmatter?.published || 0
+      );
+      const dateB = new Date(
+        b.frontmatter?.date || b.frontmatter?.published || 0
+      );
+      return dateB - dateA; // Sắp xếp giảm dần (mới nhất trước)
+    });
+    return sortedPosts;
   } catch (error) {
     console.error("Error fetching blogs:", error);
     return [];
